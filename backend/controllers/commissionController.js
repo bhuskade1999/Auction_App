@@ -24,7 +24,6 @@ export const proofOfCommission = catchAsyncErrors(async (req, res, next) => {
   const { amount, comment } = req.body;
   const user = await User.findById(req.user._id);
   let unPaidAmount = user?.unpaidCommission;
-  console.log("user from backend: ", user);
 
   if (!amount || !comment) {
     return next(new ErrorHandler("Amount & comment are required fields.", 400));

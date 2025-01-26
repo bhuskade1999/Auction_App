@@ -50,7 +50,6 @@ export const updateProofStatus = catchAsyncErrors(async (req, res, next) => {
   let proof = await PaymentProof.findById(id);
   let userId = proof?.userId;
 
-  console.log("proof ", proof, userId);
   const findUser = await User.findById(userId);
 
   if (!proof) {
