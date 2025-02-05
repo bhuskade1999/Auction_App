@@ -13,8 +13,8 @@ export const verifyCommissionCron = () => {
         const user = await User.findById(proof.userId);
         let updatedUserData = {};
         if (user) {
-          console.log("testing", user.unpaidCommission, proof.amount);
-          if (proof.unPaidAmount >= proof.amount) {
+          // console.log("testing", user.unpaidCommission, proof.amount);
+          if (user.unpaidCommission >= proof.amount) {
             updatedUserData = await User.findByIdAndUpdate(
               user._id,
               {
@@ -25,7 +25,7 @@ export const verifyCommissionCron = () => {
               { new: true }
             );
             await PaymentProof.findByIdAndUpdate(proof._id, {
-              status: "Approved",
+              status: "Settled",
             });
           } else {
             updatedUserData = await User.findByIdAndUpdate(
