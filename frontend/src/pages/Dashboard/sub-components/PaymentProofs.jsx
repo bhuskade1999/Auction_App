@@ -24,7 +24,6 @@ const PaymentProofs = () => {
   const handleUpdatePayemntProof = (id) => {
     setIsOpen(true);
     setSelectedId(id);
-    // dispatch(getSinglePaymentProofDetail(id));
   };
   console.log("isOpen2", isOpen);
 
@@ -221,7 +220,6 @@ export function Modal({ isOpen, setIsOpen, selectedId }) {
                           <div className="flex justify-center align-center text-blue-500">
                             <Link
                               to={singlePaymentProof.proof?.url || ""}
-                              // className="bg-[#D6482B] flex justify-center w-full py-2 rounded-md text-white font-semibold text-xl transition-all duration-300 hover:bg-[#b8381e]"
                               target="_blank"
                             >
                               View Payment Proof (SS)
@@ -235,8 +233,7 @@ export function Modal({ isOpen, setIsOpen, selectedId }) {
                             >
                               {loading ? "Updating" : "Update"}
                             </button>
-                            {/* </div> */}
-                            {/* <div className="border border-red-500"> */}
+
                             <button
                               type="button"
                               className="bg-yellow-500 flex justify-center w-full py-1 rounded-md text-white font-semibold text-xl transition-all duration-300 hover:bg-yellow-700"
