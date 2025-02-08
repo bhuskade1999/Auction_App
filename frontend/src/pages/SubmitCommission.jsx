@@ -21,6 +21,9 @@ const SubmitCommission = () => {
     formData.append("amount", amount);
     formData.append("comment", comment);
     dispatch(postCommissionProof(formData));
+    setProof("");
+    setAmount("");
+    setComment("");
   };
 
   return (
@@ -31,7 +34,11 @@ const SubmitCommission = () => {
             className="flex flex-col gap-5 w-full"
             onSubmit={handlePaymentProof}
           >
-            <h3 className={`text-[#D6482B] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}>Upload Payment Proof</h3>
+            <h3
+              className={`text-[#D6482B] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}
+            >
+              Upload Payment Proof
+            </h3>
             <div className="flex flex-col gap-2">
               <label className="text-[16px] text-stone-500">Amount</label>
               <input
@@ -60,12 +67,12 @@ const SubmitCommission = () => {
                 className="text-[16px] py-2 bg-transparent border-[1px] rounded-md px-1 border-stone-500 focus:outline-none"
               />
             </div>
-              <button
-                className="bg-[#d6482b] mx-auto font-semibold hover:bg-[#b8381e] text-xl transition-all duration-300 py-2 px-4 rounded-md text-white my-4"
-                type="submit"
-              >
-                {loading ? "Uploading..." : "Upload Payment Proof"}
-              </button>
+            <button
+              className="bg-[#d6482b] mx-auto font-semibold hover:bg-[#b8381e] text-xl transition-all duration-300 py-2 px-4 rounded-md text-white my-4"
+              type="submit"
+            >
+              {loading ? "Uploading..." : "Upload Payment Proof"}
+            </button>
           </form>
         </div>
       </section>

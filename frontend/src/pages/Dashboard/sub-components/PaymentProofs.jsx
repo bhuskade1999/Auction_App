@@ -204,7 +204,7 @@ export function Modal({ isOpen, setIsOpen, selectedId }) {
                               <option value="Pending">Pending</option>
                               <option value="Approved">Approved</option>
                               <option value="Rejected">Rejected</option>
-                              <option value="Settled">Settled</option>
+                              {/* <option value="Settled">Settled</option> */}
                             </select>
                           </div>
                           <div className="flex flex-col gap-3">
