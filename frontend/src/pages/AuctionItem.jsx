@@ -56,7 +56,7 @@ const AuctionItem = () => {
         {loading ? (
           <Spinner />
         ) : (
-          <div className="flex gap-4 flex-col lg:flex-row mt-3 border border-blue-500 h-screen">
+          <div className="flex gap-4 flex-col lg:flex-row mt-3  h-screen">
             <div className="flex-1 flex flex-col gap-3">
               <div className="flex gap-4 flex-col lg:flex-row">
                 <div className="bg-white w-[100%] lg:w-40 lg:h-40 flex justify-center items-center">
@@ -85,7 +85,7 @@ const AuctionItem = () => {
                 </div>
               </div>
               <p className="text-xl w-fit font-bold">
-                Auction Item Description
+                Auction Item Description's
               </p>
               <hr className="my-2 border-t-[1px] border-t-stone-700" />
               {auctionDetail.description &&
@@ -97,11 +97,11 @@ const AuctionItem = () => {
                   );
                 })}
             </div>
-            <div className="flex-1 h-screen border border-red-500">
+            <div className="relative flex-1 h-screen border border-green-500">
               <header className="bg-stone-200 py-4 text-[24px] font-semibold px-4">
                 BIDS
               </header>
-              <div className="bg-white px-4 min-h-fit lg:min-h-full borde border-red-500">
+              <div className="bg-white px-4 min-h-fit lg:min-h-full border border-green-500">
                 {auctionBidders &&
                 new Date(auctionDetail.startTime) < Date.now() &&
                 new Date(auctionDetail.endTime) > Date.now() ? (
@@ -118,9 +118,14 @@ const AuctionItem = () => {
                               alt={element.userName}
                               className="w-12 h-12 rounded-full my-2 hidden md:block"
                             />
-                            <p className="text-[18px] font-semibold">
-                              {element.userName}
-                            </p>
+
+                            <div className="flex gap-10">
+                              <p className="text-[18px] font-semibold">
+                                {element.userName}
+                              </p>
+
+                              <p className="text-blue-500">{element.amount}</p>
+                            </div>
                           </div>
                           {index === 0 ? (
                             <p className="text-[20px] font-semibold text-green-600">
@@ -161,7 +166,7 @@ const AuctionItem = () => {
                   />
                 )}
 
-                <div className="bg-[#D6482B] py-4 text-[16px] md:text-[24px] font-semibold px-4 flex items-center justify-between border border-red-500">
+                <div className="absolute bottom-0 bg-[#D6482B] py-4 text-[16px] md:text-[24px] font-semibold px-4 flex items-center justify-between ">
                   {Date.now() >= new Date(auctionDetail.startTime) &&
                   Date.now() <= new Date(auctionDetail.endTime) ? (
                     <>

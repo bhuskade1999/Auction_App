@@ -10,6 +10,10 @@ const ViewAuctionDetails = () => {
   const { loading, auctionDetail, auctionBidders } = useSelector(
     (state) => state.auction
   );
+
+  console.log("auction details", auctionDetail);
+  console.log("auction bidder", auctionBidders);
+
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const navigateTo = useNavigate();
@@ -75,7 +79,7 @@ const ViewAuctionDetails = () => {
                 </div>
               </div>
               <p className="text-xl w-fit font-bold">
-                Auction Item Description
+                Auction Item Descriptio-s
               </p>
               <hr className="my-2 border-t-[1px] border-t-stone-700" />
               {auctionDetail.description &&

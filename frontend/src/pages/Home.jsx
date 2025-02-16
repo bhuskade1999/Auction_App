@@ -60,7 +60,7 @@ const Home = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-3 border border-red-500">
+        <div className="flex flex-col gap-3">
           <h3 className="text-[#111] text-xl font-semibold  min-[480px]:text-xl md:text-2xl lg:text-3xl">
             How it works
           </h3>

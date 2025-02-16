@@ -25,6 +25,7 @@ const Dashboard = () => {
 
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const navigateTo = useNavigate();
+  //check if user is authenticated
   useEffect(() => {
     if (user.role !== "Super Admin" || !isAuthenticated) {
       navigateTo("/");

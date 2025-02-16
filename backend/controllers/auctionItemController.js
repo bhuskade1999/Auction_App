@@ -58,8 +58,30 @@ export const addNewAuctionItem = catchAsyncErrors(async (req, res, next) => {
     createdBy: req.user._id,
     endTime: { $gt: Date.now() },
   });
+
+  console.log("Auction", alreadyOneAuctionActive);
+
   if (alreadyOneAuctionActive.length > 0) {
-    return next(new ErrorHandler("You already have one active auction.", 400));
+    console.log("entered here1");
+    let isActive = false;
+    for (let i = 0; i < alreadyOneAuctionActive?.length; i++) {
+      console.log("entered here2");
+
+      let endTime = alreadyOneAuctionActive[i].endTime;
+      const givenDate = new Date(endTime);
+      const currentDate = new Date();
+      console.log("loop timestamp", givenDate, currentDate);
+      if (givenDate > currentDate) {
+        isActive = true;
+        break;
+      }
+    }
+    console.log("isActive", isActive);
+    if (isActive) {
+      return next(
+        new ErrorHandler("You already have one active auction.", 400)
+      );
+    }
   }
   try {
     const cloudinaryResponse = await cloudinary.uploader.upload(
