@@ -85,7 +85,7 @@ const AuctionItem = () => {
                 </div>
               </div>
               <p className="text-xl w-fit font-bold">
-                Auction Item Description's
+                Auction Item Description
               </p>
               <hr className="my-2 border-t-[1px] border-t-stone-700" />
               {auctionDetail.description &&
@@ -97,11 +97,11 @@ const AuctionItem = () => {
                   );
                 })}
             </div>
-            <div className="relative flex-1 h-screen border border-green-500">
+            <div className="relative flex-1 h-screen">
               <header className="bg-stone-200 py-4 text-[24px] font-semibold px-4">
                 BIDS
               </header>
-              <div className="bg-white px-4 min-h-fit lg:min-h-full border border-green-500">
+              <div className="bg-white px-4 min-h-fit lg:min-h-full">
                 {auctionBidders &&
                 new Date(auctionDetail.startTime) < Date.now() &&
                 new Date(auctionDetail.endTime) > Date.now() ? (
